@@ -109,7 +109,7 @@ def getBbox(img):
     print(arr)
     return arr
 
-interpreter = tflite.Interpreter(model_path="model_fp16.tflite")
+interpreter = tflite.Interpreter(model_path="model.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
@@ -184,5 +184,7 @@ if __name__ == "__main__":
         
         image = detect(frame=frame)
         cv2.imshow("image", image)
-        cv2.waitKey(1)
-
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    cap.release()
+    cv2.destroyAllWindows()
