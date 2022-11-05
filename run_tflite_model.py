@@ -2,11 +2,7 @@ import numpy as np
 import cv2
 import time
 #load the trained model to classify sign
-import tflite_runtime
-import tflite_runtime.interpreter as tflite
-print(np.__version__)
-print(cv2.__version__)
-print(tflite_runtime.__version__)
+import tensorflow.lite as tflite
 def getContours(img):
     arr = []
     x_arr = []
